@@ -1,0 +1,49 @@
+---
+title: "ms_3"
+author: "Nishu Lahoti"
+date: "2/27/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(dplyr)
+library(janitor)
+
+# First sample dataset for NBA based project
+nba <- read.csv("all_seasons.csv") %>%
+  clean_names()
+
+# Second dataset for blood donation based project
+transfusion <- read.table("transfusion.data", sep=",", header = TRUE) %>%
+  clean_names()
+
+```
+
+## Idea 1
+### Correlating NBA Draft Round with Salary and Avg. Points Over Career
+
+The beginning stages of the NBA draft is a highly publicized affair. Once every few years, a superstar college athlete (and in the past, high schooler) is anticipated to enter the NBA draft, placing a higher premium on the draft lottery, which determines the selection order for the lowest ranking teams in the league. These players quickly become household names - Kobe, LeBron, Michael - and usually offer the drafting team a return on their investment.
+
+But as an avid NBA fan, I have noticed that the league is comprised of many star athletes. Not every one becomes a superstar, but many have long careers in the league and they consistently contribute through points, assists, and rebounds in each team for which they play. Thus, this analysis would deep dive into the medium tier players in the NBA, who were drafted after the first round or undrafted completely, and aims to understand their average points per year and salary take homes over time.
+
+#### Sample Dataset
+```{r echo = FALSE}
+glimpse(nba)
+```
+
+## Idea 2
+### Blood Donation Waste
+
+While the Red Cross and the Media espouse the virtues of donating blood, each year 1.3M pints of blood go to waste. Blood has a mixed shelf life - with some properties like plasma being able to last 42 days while platelets might only last 5 days. A pint of donated blood's usefulness depends on the quantity of blood donated, the type, and its proximity to a person in need. Moreover, the usefulness depends on  intermediary factors such as logistics and the market price of the blood. Indeed, there is a middle market for blood donations, in which people purchase blood from donation centers and then sell / distribute to hospitals around the country.
+
+This analysis focuses on the total amount of blood loss in a certain region of the world. The idea is to visualize what types of blood have the greatest conversion rate, in terms of use, and what types of blood most often go unused. Additionally, we'll examine the middle market features, specifically which pints of blood yield the highest price and if this is indicates any externalities in the logistics of blood.
+
+#### Sample Dataset
+```{r echo=FALSE}
+glimpse(transfusion)
+```
+
+
